@@ -1,0 +1,33 @@
+-- Explor data
+select *
+from coviddb ;
+
+-- Select data that are going to be use
+
+select continent, location, date, total_cases, new_cases,total_deaths,
+		population
+from coviddb
+where continent is not null ;
+
+-- look at total_cases vs tottal_deaths
+-- show likehood if you contact covid in my country.
+
+select continent, location, date, total_cases,total_deaths,
+		(total_deaths/total_cases)*100 as Deathpercentage
+from coviddb
+where continent is not null  
+		AND location like "Thailand";
+		
+-- Total case vs Population
+-- Show percent of population infected covid
+
+select continent, location, date, total_cases, population,
+		(total_cases/population)*100 as infectedpercentage
+from coviddb
+where continent is not null  
+AND location like "Thailand" 
+order by infectedpercentage desc;
+		
+
+
+
