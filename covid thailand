@@ -16,7 +16,7 @@ select continent, location, date, total_cases,total_deaths,
 		(total_deaths/total_cases)*100 as Deathpercentage
 from coviddb
 where continent is not null  
-		AND location like "Thailand";
+AND location like "Thailand";
 		
 -- Total case vs Population
 -- Show percent of population infected covid
